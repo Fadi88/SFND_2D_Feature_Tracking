@@ -101,9 +101,15 @@ int main(int argc, const char *argv[])
         // only keep keypoints on the preceding vehicle
         bool bFocusOnVehicle = true;
         cv::Rect vehicleRect(535, 180, 180, 150);
+        std::vector<cv::KeyPoint> keypoints_ROI;
         if (bFocusOnVehicle)
         {
-            // ...
+            for(auto& kpt_tmp : keypoints)
+            {
+                if(vehicleRect.contains(kpt_tmp.pt))
+                    keypoints_ROI.push_back(kpt_tmp);
+            }
+            keypoints = keypoints_ROI;
         }
 
         //// EOF STUDENT ASSIGNMENT
