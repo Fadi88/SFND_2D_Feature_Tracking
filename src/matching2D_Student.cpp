@@ -79,12 +79,17 @@ void descKeypoints(vector<cv::KeyPoint> &keypoints, cv::Mat &img, cv::Mat &descr
     }
     else if (descriptorType.compare("AKAZE") == 0)
     {
-        // TODO : fix asseration
+        // AKAZE doesnt work with default class ID of -1
+        for (size_t i = 0; i < keypoints.size(); i++)
+        {
+            keypoints[i].class_id = 1;
+        }
+
         extractor = cv::AKAZE::create();
+
     }
     else if (descriptorType.compare("SIFT") == 0)
     {
-        // TODO : fix asseration
         extractor = cv::xfeatures2d::SIFT::create();
     }
 
