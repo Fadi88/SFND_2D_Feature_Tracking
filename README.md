@@ -55,8 +55,27 @@ FLANN and KNN were implemented as per the lessons and previous tutorials
 distance ratio was implemented as per the previous tutorials with a values of 0.4 for better matching results 
 
 # MP.7
+|detector| points | time(ms)|
+|------|-------|-------|
+|shi-tomasi|120|16|
+|harris|20|14.4|
+|FAST|150|1.5|
+|BRISK|280|26|
+|ORB|100|17|
+|AKAZE|150|40|
+|SIFT|130|75|
+
 
 # MP.8
+for the combinination from MP.7 the focus for the detector was on FAST for its speed and HARRIS for its low point count which will make matching faster but also because its timing it among the lowest after FAST
+
+the observation was that SIFT as descriptors didnt work with both FAST and HARRIS and the result more or less was the same with all other descriptors alogorthims 
+
 
 # MP.9
 
+same as MP.8 with time measurement
+even though HARRIS produced far less point which meant less time for the matching and descriptors extraction however the huge time taken by the feature extraction itself didn't break even
+top 3 combination recommended are 
+1-2 FAST detector  +  BRIEF| BRISK averaging 2.5 ms for detection + 1.5 ms for descriptors
+3   FAST detector  +  ORB          averaging 2.5 ms for detection + 6 ms for descriptors
