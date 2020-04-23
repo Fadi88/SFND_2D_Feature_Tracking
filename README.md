@@ -32,3 +32,31 @@ See the classroom instruction and code comments for more details on each of thes
 2. Make a build directory in the top level directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
 4. Run it: `./2D_feature_tracking`.
+
+## Writeup
+
+# MP.1
+std::vector was used by removing the first element when the length exceeds a threshold
+
+# MP.2
+standard implemantion from CV was used by using the functions prototype as provided in "matching2D.hpp"
+divided in a function for Harris (already provided) and function for ShaiTomasi and another function for modern detector
+
+# MP.3
+keypoints removal using the cv::Rect::contains functions from the keypoints detects in MP.2
+
+# MP.4
+as in MP.2 standard open cv was used, the challenge however was to sometimes the detected keypoints with certain alogrthims didnt work with descriptors, trial and error had to be done with some manual modifictions  that was needed (AKAZE not accepting point with class -1 for example)
+
+# MP.5
+FLANN and KNN were implemented as per the lessons and previous tutorials 
+
+# MP.6
+distance ratio was implemented as per the previous tutorials with a values of 0.4 for better matching results 
+
+# MP.7
+
+# MP.8
+
+# MP.9
+
